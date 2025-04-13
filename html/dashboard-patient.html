@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - PulseLink AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-page">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Your Health Dashboard</h1>
+                <p>Welcome back! Here's an overview of your health metrics and AI-powered insights.</p>
+            </div>
+
+            <div class="stat-cards">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Heart Rate</h3>
+                        <div class="stat-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">78 bpm</div>
+                    <p class="stat-description">Average over last 24 hours</p>
+                    <div class="stat-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 3% from yesterday
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Blood Pressure</h3>
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">120/78</div>
+                    <p class="stat-description">Last reading at 8:30 AM</p>
+                    <div class="stat-trend trend-neutral">
+                        <i class="fas fa-arrow-right"></i> Stable
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Hydration</h3>
+                        <div class="stat-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">70%</div>
+                    <p class="stat-description">Based on your activity level</p>
+                    <div class="stat-trend trend-down">
+                        <i class="fas fa-arrow-down"></i> 5% from optimal
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Sleep Quality</h3>
+                        <div class="stat-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </div>
+                    <div class="stat-value">80%</div>
+                    <p class="stat-description">7.2 hours last night</p>
+                    <div class="stat-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 10% from last week
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="overview">Overview</button>
+                    <button class="tab-btn" data-tab="insights">AI Insights</button>
+                    <button class="tab-btn" data-tab="recommendations">Recommendations</button>
+                </div>
+
+                <div class="tab-content active" id="overview-content">
+                    <div class="charts-container">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Heart Rate</h3>
+                                <p>Weekly trend of your heart rate</p>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="heartRateChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Sleep Duration</h3>
+                                <p>Weekly trend of your sleep duration</p>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="sleepChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <h3>Health Summary</h3>
+                            <p>AI-generated summary of your health status</p>
+                        </div>
+                        <div class="summary-body">
+                            <p>Your overall health metrics are within normal ranges. Your sleep quality is excellent, with an average of 7.2 hours per night. Your heart rate shows a slight increase mid-week, possibly correlated with your increased physical activity on Wednesday.</p>
+                            <p>Your hydration levels could be improved, especially during afternoon hours. Consider setting reminders to drink water throughout the day.</p>
+                            <p>Your stress levels appear to peak in the evenings. The AI suggests trying meditation or deep breathing exercises before bedtime.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="insights-content">
+                    <div class="insights-grid">
+                        <div class="insight-card medium">
+                            <div class="insight-icon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <div class="insight-content">
+                                <div class="status-indicator medium">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Moderate Concern</span>
+                                </div>
+                                <h3>Sleep Pattern Change</h3>
+                                <p>Your sleep quality drops on weekdays, particularly during work hours. This might be related to increased stress levels during the workweek.</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-card medium">
+                            <div class="insight-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="insight-content">
+                                <div class="status-indicator medium">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Moderate Concern</span>
+                                </div>
+                                <h3>Stress Correlation</h3>
+                                <p>Your stress levels show a strong correlation with hydration levels. When hydration drops below 75%, stress markers increase by an average of 15%.</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-card low">
+                            <div class="insight-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="insight-content">
+                                <div class="status-indicator low">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Good Progress</span>
+                                </div>
+                                <h3>Nutrition Impact</h3>
+                                <p>Your recovery metrics improve by 20% on days when protein intake is above 80g. Consider maintaining this level for optimal recovery.</p>
+                            </div>
+                        </div>
+
+                        <div class="insight-card high">
+                            <div class="insight-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="insight-content">
+                                <div class="status-indicator high">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Needs Attention</span>
+                                </div>
+                                <h3>Heart Rate Variability</h3>
+                                <p>Your HRV shows reduced variability during work hours, suggesting increased stress. This pattern is most noticeable between 2-4 PM.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="recommendations-content">
+                    <div class="recommendations-card">
+                        <div class="recommendations-header">
+                            <h3>Personalized Recommendations</h3>
+                            <p>Based on your health data and AI analysis</p>
+                        </div>
+                        <div class="recommendations-body">
+                            <ul class="recommendations-list">
+                                <li class="recommendation-item">
+                                    <div class="recommendation-icon green">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="recommendation-content">
+                                        <h4>Increase physical activity</h4>
+                                        <p>Try to add 20 minutes of moderate exercise 3 times this week. Your heart rate data shows you respond well to morning workouts.</p>
+                                    </div>
+                                </li>
+                                <li class="recommendation-item">
+                                    <div class="recommendation-icon blue">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="recommendation-content">
+                                        <h4>Improve hydration</h4>
+                                        <p>Aim for 2.5 liters of water daily, especially between 2-4 PM when your stress levels tend to peak. Set reminders to drink water every hour.</p>
+                                    </div>
+                                </li>
+                                <li class="recommendation-item">
+                                    <div class="recommendation-icon purple">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="recommendation-content">
+                                        <h4>Stress management</h4>
+                                        <p>Try the 4-7-8 breathing technique before bed to improve sleep quality. Your data shows this could help reduce nighttime stress markers by up to 30%.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="chat-button-container">
+                        <button class="btn primary-btn">
+                            <i class="fas fa-comment-dots"></i>
+                            Chat with your doctor
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/patient-dashboard.js"></script>
+</body>
+</html>

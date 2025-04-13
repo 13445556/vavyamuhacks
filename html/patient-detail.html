@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details - PulseLink AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="patient-detail-page">
+        <div class="container">
+            <div class="page-header">
+                <a href="../html/dashboard-doctor.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Dashboard
+                </a>
+                <div class="patient-header">
+                    <div>
+                        <h1>Ayaan Khan</h1>
+                        <p>Patient ID: P123456</p>
+                    </div>
+                    <button class="btn primary-btn">
+                        <i class="fas fa-comment-dots"></i>
+                        Contact Patient
+                    </button>
+                </div>
+            </div>
+
+            <div class="patient-detail-content">
+                <div class="patient-info-card">
+                    <div class="card-header">
+                        <h2>Patient Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-grid">
+                            <div class="info-label">Age:</div>
+                            <div class="info-value">31 years</div>
+                            <div class="info-label">Gender:</div>
+                            <div class="info-value">Male</div>
+                            <div class="info-label">Height:</div>
+                            <div class="info-value">175 cm</div>
+                            <div class="info-label">Weight:</div>
+                            <div class="info-value">72 kg</div>
+                            <div class="info-label">BMI:</div>
+                            <div class="info-value">23.5</div>
+                            <div class="info-label">Blood Type:</div>
+                            <div class="info-value">O+</div>
+                        </div>
+
+                        <div class="medical-history">
+                            <h3>Medical History</h3>
+                            <ul>
+                                <li>No diabetes</li>
+                                <li>No hypertension</li>
+                                <li>No asthma</li>
+                                <li>No heart conditions</li>
+                            </ul>
+                        </div>
+
+                        <div class="doctor-notes">
+                            <div class="notes-header">
+                                <h3>Doctor's Notes</h3>
+                                <button class="icon-btn" id="edit-notes-btn">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div id="notes-display">
+                                <p>Patient has been showing improved vitals since the medication adjustment. Sleep patterns still need monitoring. Follow up in 2 weeks.</p>
+                            </div>
+                            <div id="notes-edit" class="hidden">
+                                <textarea id="notes-textarea">Patient has been showing improved vitals since the medication adjustment. Sleep patterns still need monitoring. Follow up in 2 weeks.</textarea>
+                                <button class="icon-btn" id="save-notes-btn">
+                                    <i class="fas fa-save"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="patient-data">
+                    <div class="data-tabs">
+                        <button class="data-tab active" data-tab="vitals">Vitals & Trends</button>
+                        <button class="data-tab" data-tab="insights">AI Insights</button>
+                        <button class="data-tab" data-tab="history">Visit History</button>
+                    </div>
+
+                    <div class="data-content active" id="vitals-content">
+                        <div class="charts-container">
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h3>Heart Rate</h3>
+                                    <p>Weekly trend of heart rate</p>
+                                </div>
+                                <div class="chart-body">
+                                    <canvas id="patientHeartRateChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h3>Sleep Duration</h3>
+                                    <p>Weekly trend of sleep duration</p>
+                                </div>
+                                <div class="chart-body">
+                                    <canvas id="patientSleepChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vitals-card">
+                            <div class="card-header">
+                                <h3>Current Vitals</h3>
+                                <p>Last updated 2 hours ago</p>
+                            </div>
+                            <div class="vitals-grid">
+                                <div class="vital-item">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <div class="vital-value">78 bpm</div>
+                                    <div class="vital-label">Heart Rate</div>
+                                </div>
+                                <div class="vital-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div class="vital-value">120/78</div>
+                                    <div class="vital-label">Blood Pressure</div>
+                                </div>
+                                <div class="vital-item">
+                                    <i class="fas fa-tint"></i>
+                                    <div class="vital-value">97%</div>
+                                    <div class="vital-label">SpO2</div>
+                                </div>
+                                <div class="vital-item">
+                                    <i class="fas fa-brain"></i>
+                                    <div class="vital-value">36.8°C</div>
+                                    <div class="vital-label">Temperature</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-content" id="insights-content">
+                        <div class="summary-card">
+                            <div class="card-header">
+                                <h3>AI-Generated Health Summary</h3>
+                                <p>Based on wearable data from the last 7 days</p>
+                            </div>
+                            <div class="card-body">
+                                <p>Patient's heart rate shows elevated patterns during evening hours (8-10 PM), consistently 15-20% above baseline. This correlates with reported stress from work deadlines.</p>
+                                <p>Sleep quality has declined by 30% over the past week, with frequent awakenings between 2-4 AM. This pattern often precedes periods of fatigue reported by the patient.</p>
+                                <p>Blood pressure readings remain within normal range but show increased variability compared to last month's data. Recommend continued monitoring and possible lifestyle modifications.</p>
+                            </div>
+                        </div>
+
+                        <div class="insights-grid">
+                            <div class="insight-card medium">
+                                <div class="insight-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="insight-content">
+                                    <h3>Sleep Pattern Change</h3>
+                                    <p>Sleep quality drops on weekdays</p>
+                                </div>
+                            </div>
+
+                            <div class="insight-card high">
+                                <div class="insight-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <div class="insight-content">
+                                    <h3>Heart Rate Variability</h3>
+                                    <p>Reduced HRV detected during work hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-content" id="history-content">
+                        <div class="history-card">
+                            <div class="card-header">
+                                <h3>Visit History</h3>
+                                <p>Recent consultations and follow-ups</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="visit-item">
+                                    <div class="visit-header">
+                                        <h4>March 15, 2025</h4>
+                                        <span class="visit-type follow-up">Follow-up</span>
+                                    </div>
+                                    <p>Follow-up on medication adjustment. Patient reported improved sleep and reduced fatigue. Blood pressure readings stable.</p>
+                                </div>
+
+                                <div class="visit-item">
+                                    <div class="visit-header">
+                                        <h4>February 28, 2025</h4>
+                                        <span class="visit-type regular">Regular Check</span>
+                                    </div>
+                                    <p>Regular check-up. Adjusted medication dosage. Recommended stress management techniques and sleep hygiene practices.</p>
+                                </div>
+
+                                <div class="visit-item">
+                                    <div class="visit-header">
+                                        <h4>January 10, 2025</h4>
+                                        <span class="visit-type emergency">Emergency</span>
+                                    </div>
+                                    <p>Patient reported chest discomfort and elevated heart rate. ECG normal. Diagnosed with anxiety-related symptoms. Prescribed short-term medication.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-center">
+                            <button class="btn primary-btn">Schedule Follow-up Appointment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/patient-detail.js"></script>
+</body>
+</html>

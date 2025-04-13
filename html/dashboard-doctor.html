@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - PulseLink AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="doctor-dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="doctor-profile">
+                    <div class="doctor-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Cardiologist</p>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-user-group"></i> <span>My Patients</span></a></li>
+                    <li><a href="#"><i class="fas fa-calendar-check"></i> <span>Appointments</span></a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> <span>AI Insights</span></a></li>
+                    <li><a href="#"><i class="fas fa-notes-medical"></i> <span>Medical Records</span></a></li>
+                    <li><a href="#"><i class="fas fa-gear"></i> <span>Settings</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn primary-btn btn-full">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h1>Doctor Dashboard</h1>
+                <p>Manage your patients and appointments with AI-powered insights</p>
+                <div class="header-actions">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="doctor-mini-profile">
+                        <div class="mini-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <span>Dr. Sarah</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="patients">My Patients</button>
+                    <button class="tab-btn" data-tab="appointments">Appointments</button>
+                    <button class="tab-btn" data-tab="alerts">Critical Alerts</button>
+                </div>
+
+                <div class="tab-content active" id="patients-content">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search patients..." id="patient-search">
+                        </div>
+                        <button class="btn primary-btn">
+                            <i class="fas fa-user-plus"></i>
+                            Add New Patient
+                        </button>
+                    </div>
+
+                    <div class="section-intro">
+                        <h2>Patient Overview</h2>
+                        <p>Monitor your patients' health status and AI-detected patterns</p>
+                    </div>
+
+                    <div class="patient-list">
+                        <div class="patient-card">
+                            <div class="patient-info">
+                                <div class="patient-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div>
+                                    <h3>Ayaan Khan</h3>
+                                    <p>31 years • Male</p>
+                                </div>
+                            </div>
+                            <div class="patient-status">
+                                <div class="last-update">Updated 10:30 AM</div>
+                                <div class="alert-badge critical">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Heart Rate Alert
+                                </div>
+                                <div class="patient-actions">
+                                    <button class="btn outline-btn btn-sm">
+                                        <i class="fas fa-comment"></i>
+                                        Contact
+                                    </button>
+                                    <button class="btn primary-btn btn-sm">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="patient-card">
+                            <div class="patient-info">
+                                <div class="patient-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div>
+                                    <h3>Priya Sharma</h3>
+                                    <p>26 years • Female</p>
+                                </div>
+                            </div>
+                            <div class="patient-status">
+                                <div class="last-update">Updated 09:00 AM</div>
+                                <div class="alert-badge stable">
+                                    <i class="fas fa-check-circle"></i>
+                                    All Vitals Normal
+                                </div>
+                                <div class="patient-actions">
+                                    <button class="btn outline-btn btn-sm">
+                                        <i class="fas fa-comment"></i>
+                                        Contact
+                                    </button>
+                                    <button class="btn primary-btn btn-sm">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="appointments-content">
+                    <div class="section-intro">
+                        <h2>Today's Appointments</h2>
+                        <p>Manage your schedule and patient consultations</p>
+                    </div>
+
+                    <div class="appointments-grid">
+                        <div class="appointment-card">
+                            <h3>Rohan Gupta</h3>
+                            <div class="appointment-details">
+                                <div class="detail-row">
+                                    <span>Time:</span>
+                                    <span>11:00 AM</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Type:</span>
+                                    <span>Follow-up</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Concern:</span>
+                                    <span>High Blood Pressure</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn outline-btn btn-sm">
+                                    <i class="fas fa-video"></i>
+                                    Start Call
+                                </button>
+                                <button class="btn primary-btn btn-sm">View Records</button>
+                            </div>
+                        </div>
+
+                        <div class="appointment-card">
+                            <h3>Meera Verma</h3>
+                            <div class="appointment-details">
+                                <div class="detail-row">
+                                    <span>Time:</span>
+                                    <span>2:30 PM</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Type:</span>
+                                    <span>Initial Consultation</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Concern:</span>
+                                    <span>Sleep Issues</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn outline-btn btn-sm">
+                                    <i class="fas fa-video"></i>
+                                    Start Call
+                                </button>
+                                <button class="btn primary-btn btn-sm">View Records</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="alerts-content">
+                    <div class="section-intro">
+                        <h2>Critical Alerts</h2>
+                        <p>AI-detected patterns requiring immediate attention</p>
+                    </div>
+
+                    <div class="alerts-grid">
+                        <div class="alert-card critical">
+                            <h3>Ravi Singh</h3>
+                            <p>SpO2 dropped below 90% last night</p>
+                            <div class="alert-actions">
+                                <button class="btn outline-btn btn-sm">
+                                    <i class="fas fa-phone"></i>
+                                    Call Patient
+                                </button>
+                                <button class="btn primary-btn btn-sm">View Vitals</button>
+                            </div>
+                        </div>
+
+                        <div class="alert-card warning">
+                            <h3>Anjali Kumari</h3>
+                            <p>Irregular heart rate pattern detected</p>
+                            <div class="alert-actions">
+                                <button class="btn outline-btn btn-sm">
+                                    <i class="fas fa-phone"></i>
+                                    Call Patient
+                                </button>
+                                <button class="btn primary-btn btn-sm">View Vitals</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/doctor-dashboard.js"></script>
+</body>
+</html>

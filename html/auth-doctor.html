@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login - PulseLink AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="container">
+            <div class="auth-content">
+                <a href="../index.html" class="logo-center">
+                    <img src="../images/logo-placeholder.svg" alt="PulseLink AI Logo">
+                    <span>Healthify</span>
+                </a>
+                
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Welcome back, Doctor</h2>
+                        <p>Enter your credentials to access your account</p>
+                    </div>
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="doctor@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="password-header">
+                                <label for="password">Password</label>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                            <input type="password" id="password" required>
+                        </div>
+                        <button type="submit" class="btn primary-btn btn-full">Login</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="../html/register-doctor.html">Create one</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>
