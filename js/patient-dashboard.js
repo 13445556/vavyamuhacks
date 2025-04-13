@@ -160,52 +160,86 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function initializeCharts() {
-  const heartRateData = [72, 75, 78, 74, 76, 70, 72]
-  const heartRateLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-  createSimpleChart("heartRateChart", heartRateData, heartRateLabels, "#0a5f9e", "bpm")
+  const heartRateData = [72, 75, 78, 74, 76, 70, 72];
+  const heartRateLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const sleepData = [7.2, 6.8, 7.5, 8.1, 6.5, 7.8, 7.4];
+  const sleepLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-  const sleepData = [7.2, 6.8, 7.5, 8.1, 6.5, 7.8, 7.4]
-  const sleepLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-  createSimpleChart("sleepChart", sleepData, sleepLabels, "#3c92d1", "hours")
-}
-
-function createSimpleChart(elementId, data, labels, color, unit) {
-  const chartElement = document.getElementById(elementId)
-  if (!chartElement) return
-
-  chartElement.innerHTML = ""
-
-  const maxValue = Math.max(...data)
-
-  data.forEach((value, index) => {
-    const heightPercentage = (value / maxValue) * 80 // 80% of container height max
-
-    const barContainer = document.createElement("div")
-    barContainer.className = "chart-bar"
-
-    const barFill = document.createElement("div")
-    barFill.className = "chart-bar-fill"
-    barFill.style.height = "0" // Start at 0 for animation
-    barFill.style.backgroundColor = color
-
-    const barLabel = document.createElement("div")
-    barLabel.className = "chart-bar-label"
-    barLabel.textContent = labels[index]
-
-    const barValue = document.createElement("div")
-    barValue.className = "chart-bar-value"
-    barValue.textContent = `${value} ${unit}`
-
-    barContainer.appendChild(barFill)
-    barContainer.appendChild(barLabel)
-    barContainer.appendChild(barValue)
-    chartElement.appendChild(barContainer)
-
-    setTimeout(
-      () => {
-        barFill.style.height = `${heightPercentage}%`
+  // Create heart rate chart
+  const heartRateCtx = document.getElementById('heartRateChart').getContext('2d');
+  new Chart(heartRateCtx, {
+    type: 'line',
+    data: {
+      labels: heartRateLabels,
+      datasets: [{
+        label: 'Heart Rate (bpm)',
+        data: heartRateData,
+        borderColor: '#0a5f9e',
+        backgroundColor: 'rgba(10, 95, 158, 0.1)',
+        tension: 0.4,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        }
       },
-      100 + index * 100,
-    )
-  })
+      scales: {
+        y: {
+          beginAtZero: false,
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        },
+        x: {
+          grid: {
+            display: false
+          }
+        }
+      }
+    }
+  });
+
+  // Create sleep chart
+  const sleepCtx = document.getElementById('sleepChart').getContext('2d');
+  new Chart(sleepCtx, {
+    type: 'line',
+    data: {
+      labels: sleepLabels,
+      datasets: [{
+        label: 'Sleep Duration (hours)',
+        data: sleepData,
+        borderColor: '#3c92d1',
+        backgroundColor: 'rgba(60, 146, 209, 0.1)',
+        tension: 0.4,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        },
+        x: {
+          grid: {
+            display: false
+          }
+        }
+      }
+    }
+  });
 }
